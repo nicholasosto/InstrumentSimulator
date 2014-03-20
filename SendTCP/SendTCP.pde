@@ -1,6 +1,8 @@
 import processing.net.*;
 Server myServer;
 PHMeter myPHMeter;
+O2Analyzer myO2;
+
 int val = 0;
 
 void setup() 
@@ -9,18 +11,19 @@ void setup()
   // Starts a myServer on port 5204
   myServer = new Server(this, 3001); 
   myPHMeter = new PHMeter();
+  myO2 = new O2Analyzer();
 }
 
 void draw() 
 {
-  //val = (val + 1) % 255;
+  //val = (val + 1) % 255;nich
   //background(val);
   //myServer.write(val);
 }
 
 void keyPressed()
 {
-  String ph_cal_data = "CALIBRATION\r\nP1 pH=7.01\r\n-13.7mV 22.6C\r\nP2 pH=10.04\r\n-184.7mV 22.6C\r\nSLP=96.1%\r\nISO=7.000\r\n13:15 11-18-13\r\n";
+  
 
   if(key == '1') // SEND PH CALIBRATION DATA
   {
