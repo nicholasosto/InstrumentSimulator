@@ -2,6 +2,7 @@ import processing.net.*;
 Server myServer;
 PHMeter myPHMeter;
 O2Analyzer myO2;
+Osmo myOsmo;
 
 int val = 0;
 
@@ -12,6 +13,7 @@ void setup()
   myServer = new Server(this, 3001); 
   myPHMeter = new PHMeter();
   myO2 = new O2Analyzer();
+  myOsmo = new Osmo();
 }
 
 void draw() 
@@ -40,4 +42,15 @@ void keyPressed()
     myServer.write(myPHMeter.results_data);
     println(myPHMeter.results_data);
   }
+  if(key == '4') // SEND O2 DATA
+  {
+    myServer.write(myO2.results_data);
+    println(myO2.results_data);
+  }
+  if(key == '5') // SEND Osmo DATA
+  {
+    myServer.write(myOsmo.results_data);
+    println(myOsmo.results_data);
+  }
+
 }
